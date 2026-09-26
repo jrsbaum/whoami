@@ -1,0 +1,20 @@
+{
+  "name": "lafarmer2",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present && npm run test:layout",
+    "test:layout": "vitest run --config vitest.config.ts tests/build-layout.test.ts",
+    "dev:web": "npm run dev --workspace @lafarmer2/web",
+    "dev:server": "npm run dev --workspace @lafarmer2/server"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
